@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   const [isReadyForInstall, setIsReadyForInstall] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<Event>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null);
 
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (e) => {
@@ -15,6 +15,22 @@ function App() {
       setIsReadyForInstall(true);
     });
   }, []);
+
+  async function downloadApp() {
+    console.log("click");
+    const promptEvent = deferredPrompt;
+
+    if (!promptEvent) {
+      console.log("ningun prompt evente guardado en window");
+      return;
+    }
+    promptEvent.prompt();
+    const result = await promptEvent.userChoice;
+    console.log("user choice", result);
+
+    setDeferredPrompt(null);
+    setIsReadyForInstall(false);
+  }
 
   return (
     <>
@@ -32,7 +48,7 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <button>Descarga</button>
+      {isReadyForInstall && <button onClick={downloadApp}>Descarga</button>}
     </>
   );
 }
