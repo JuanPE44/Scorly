@@ -1,0 +1,33 @@
+{
+  "background_color": "#ffffff",
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "description": "Scorly anotador de puntos para juegos de cartas",
+  "dir": "ltr",
+  "display_override": [
+    "standalone",
+    "fullscreen"
+  ],
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/scorly.png",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/scorly.png",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ],
+  "id": "scorly",
+  "lang": "es-ES",
+  "scope": "/",
+  "name": "Scorly",
+  "orientation": "portrait",
+  "start_url": "/",
+  "theme_color": "#ffffff"
+}
