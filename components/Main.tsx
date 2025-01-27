@@ -5,7 +5,12 @@ export default function Main() {
   const insets = useSafeAreaInsets();
   return (
     <View
-      style={{ paddingTop: insets.top, paddingBottom: insets.bottom, flex: 1 }}
+      style={{
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+        flex: 1,
+        paddingHorizontal: 10,
+      }}
     >
       <Text style={{ color: "white", backgroundColor: "black" }}>Main</Text>
     </View>
